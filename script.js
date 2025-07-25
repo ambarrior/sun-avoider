@@ -63,54 +63,6 @@ document.getElementById('pm-button').addEventListener('click', () => {
   document.getElementById('am-button').classList.remove('active');
 });
 
-// Autocomplete location
-function setupAutocomplete(inputId, suggestionBoxId) {
-  const input = document.getElementById(inputId);
-  const suggestions = document.getElementById(suggestionBoxId);
-
-  input.addEventListener("input", debounce(async () => {
-    const query = input.value.trim();
-    suggestions.innerHTML = "";
-
-    if (!query) return;
-
-    try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&limit=8`);
-      const data = await res.json();
-
-      data.forEach(place => {
-        const div = document.createElement("div");
-        div.textContent = place.display_name;
-        div.title = place.display_name;
-        div.addEventListener("click", () => {
-          input.value = place.display_name;
-          suggestions.innerHTML = "";
-        });
-        suggestions.appendChild(div);
-      });
-    } catch (err) {
-      console.error("Autocomplete error:", err);
-    }
-  }, 400));
-
-  document.addEventListener("click", (e) => {
-    if (!suggestions.contains(e.target) && e.target !== input) {
-      suggestions.innerHTML = "";
-    }
-  });
-}
-
-function debounce(func, delay) {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
-setupAutocomplete("start", "start-suggestions");
-setupAutocomplete("end", "end-suggestions");
-
 // Geolocation
 async function getCoordinates(placeName) {
   try {

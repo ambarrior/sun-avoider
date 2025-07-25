@@ -3,7 +3,7 @@
 This web app helps you choose the best side of the bus to sit on, based on the position of the sun during your travel time.
 
 ## Features
-- Input start and end locations using autocomplete
+- Input start and end locations
 - Select your time of travel 
 - See your route direction on a map
 - Get a recommendation for the shadier side of the bus
@@ -26,4 +26,4 @@ The app estimates the sun's direction based on your travel direction and time, t
 - 3D minimap with sun animation
 - Real-time sun position
 - More precise calculations using actual bus route vs. general travel direction
-- UIUX enhancements
+- UIUX enhancements (e.g. location autocomplete)

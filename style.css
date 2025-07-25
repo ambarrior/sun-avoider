@@ -110,19 +110,15 @@ input[type="text"] {
   background: white;
 }
 
+input[type="text"] {
+  width: 285px;
+  box-sizing: border-box;
+}
+
 input[type="text"]:focus {
   border-color: #007BFF;
 }
 
-.autocomplete {
-  position: relative;
-  width: 285px;
-}
-
-.autocomplete input[type="text"] {
-  width: 100%;
-  box-sizing: border-box;
-}
 
 .suggestions {
   position: absolute;
