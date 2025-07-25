@@ -1,0 +1,208 @@
+h1 {
+  margin-bottom: 30px;
+}
+  
+body {
+  font-family: sans-serif;
+  background-color: white;
+  padding: 20px;
+  margin: 0;
+}
+
+/* Layout container for inputs and map */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 30px;
+}
+
+/* Left side: form elements */
+.input-section {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Right side: map */
+.map-section {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  margin: 0;
+}
+
+/* Time of travel block */
+.time-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+select#hour {
+  font-size: 1em;
+  padding: 8px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* AM/PM buttons */
+#ampm-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.ampm {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  cursor: pointer;
+  font-size: 1em;
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.ampm.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.ampm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Labels and inputs */
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+input[type="text"] {
+  font-size: 1em;
+  height: 38px;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  background: white;
+}
+
+input[type="text"]:focus {
+  border-color: #007BFF;
+}
+
+.autocomplete {
+  position: relative;
+  width: 285px;
+}
+
+.autocomplete input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.suggestions div {
+  padding: 8px;
+  cursor: pointer;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.suggestions div:hover {
+  background-color: #f0f0f0;
+}
+
+/* Get Advice button */
+.action-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; /* aligns with inputs */
+}
+
+button[type="submit"] {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #333;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 16px;
+  width: fit-content;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+
+  .input-section {
+    margin-bottom: 30px;
+  }
+
+  .map-section {
+    margin: 0;
+    padding: 0;
+  }
+
+  #map {
+    max-width: 100%;
+    width: 100%;
+    min-height: 260px;
+    margin: 0;
+    padding: 0;
+  }
+
+  button#get-advice {
+    width: 100%;
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Which side of the bus should I sit at?</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h1>Where should I sit on the bus?</h1>
+  <form id="bus-form">
+  <div class="main-container">
+    <!-- Left column: inputs only -->
+    <div class="input-section">
+      <div class="input-group">
+        <label for="hour">Time of Travel:</label>
+        <div class="time-group">
+          <select id="hour">
+            <option disabled selected value="">-- Select hour --</option>
+          </select>
+          <div id="ampm-buttons">
+            <button type="button" id="am-button" class="ampm active">AM</button>
+            <button type="button" id="pm-button" class="ampm">PM</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="start">Start location:</label>
+        <div class="autocomplete">
+          <input type="text" id="start" autocomplete="off" />
+          <div id="start-suggestions" class="suggestions"></div>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="end">End location:</label>
+        <div class="autocomplete">
+          <input type="text" id="end" autocomplete="off" />
+          <div id="end-suggestions" class="suggestions"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: map -->
+    <div class="map-section">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- Bottom section: Get Advice button -->
+  <div class="action-section">
+    <button type="submit" class="submit-button">Get Advice</button>
+  </div>
+</form>
+
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
